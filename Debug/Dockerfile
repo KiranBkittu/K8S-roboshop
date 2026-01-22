@@ -1,4 +1,4 @@
-FROM almalinux:9
+FROM almalinux
 RUN dnf install telnet net-tools iputils bind-utils -y
 RUN useradd roboshop
 USER roboshop
