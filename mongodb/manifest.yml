@@ -9,7 +9,7 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      pupose: test-replicas
+      purpose: test-replicas
   template:
     metadata:
       labels:
@@ -18,7 +18,7 @@ spec:
       containers:
         - name: mongodb
           image: kiranbandi9010/mongodb-public:v1
-          redinessProbe:
+          readinessProbe:
             tcpSocket:
               port: 27017
             initialDelaySeconds: 15
@@ -37,9 +37,7 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    project: roboshop
-    component: mongodb
-    tier: db
+    purpose: test-replicas
   ports:
     - protocol: TCP
       port: 27017
