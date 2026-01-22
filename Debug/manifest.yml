@@ -9,4 +9,4 @@ metadata:
 spec:
   containers:
     - name: debug
-      image: joindevops/debug:v1
+      image: joindevops/debug:v1 # it is in public repo of tutor shiva
