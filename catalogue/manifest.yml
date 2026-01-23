@@ -29,8 +29,8 @@ spec:
           image: kiranbandi9010/catalogue:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMap:
-              name: add-01
+            - ConfigMapRef:
+                name: add-01
           readinessProbe:
             tcpSocket:
               port: 27017
