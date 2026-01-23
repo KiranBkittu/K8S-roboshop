@@ -29,7 +29,7 @@ spec:
           image: kiranbandi9010/catalogue:v1
           imagePullPolicy: Always
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: add-01
           readinessProbe:
             tcpSocket:
