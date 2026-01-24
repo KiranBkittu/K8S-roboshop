@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: storageClass
+metadata:
+  name: ebs-storageClass
+reclaimPolicy: retain
+provisioner: ebs.csi.aws.com
+volumeBindingMode: waitForFirstConsumer
