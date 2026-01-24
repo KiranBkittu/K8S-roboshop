@@ -51,7 +51,7 @@ kind: Service
 metadata: 
   name: service-01
 spec:
-  selectors:
+  selector:
     ebs: volume-01
   ports:
     - protocol: TCP
