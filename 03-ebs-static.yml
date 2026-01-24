@@ -14,7 +14,7 @@ spec:
     volumeHandle: vol-07e09f1ac3abd586b # volume id
 ---
 apiVersion: v1
-kind: persistentVolumeClaim
+kind: PersistentVolumeClaim
 metadata:
   name: ebs-pvc
 spec:
@@ -25,4 +25,3 @@ spec:
   resources:
     requests:
       storage: 5Gi
-      
