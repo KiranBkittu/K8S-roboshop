@@ -51,6 +51,7 @@ kind: Service
 metadata: 
   name: service-01
 spec:
+  type: LoadBalancer
   selector:
     ebs: volume-01
   ports:
