@@ -38,7 +38,7 @@ spec:
         - name: nginx-html
           mountPath: /usr/share//nginx/html
   nodeSelector: # without nodeselector it may assign to other node which are in other availability zone then it gets faile
-    topology.ebs.csi.aws.com/zone: us-east-1b
+    topology.ebs.csi.aws.com/zone: us-east-1b ## it should be same in 1b only we have to take
   volumes:
     - name: nginx-html
       persistentVolumeClaim:
