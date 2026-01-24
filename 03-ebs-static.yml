@@ -12,3 +12,17 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-07e09f1ac3abd586b # volume id
+---
+apiVersion: v1
+kind: persistentVolumeClaim
+metadata:
+  name: ebs-pvc
+spec:
+  storageClassName: "" 
+  volumeName: ebs-static # pv name and this should be same
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+      
