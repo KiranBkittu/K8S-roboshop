@@ -1,4 +1,5 @@
 # this storage class should be create by k8s admin team
+# note : this is EBS dynamic provisioning, this we are not creating pv and pvc and mount point of aws separatly we are creating storageclass and we are using that with persistenvolumeclaim option and we don't require to mentione node-selector it will only checks and adds storage
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -32,8 +33,7 @@ spec:
       volumeMounts:
         - name: nginx-html
           mountPath: /usr/share//nginx/html
-  nodeSelector: # without nodeselector it may assign to other node which are in other availability zone then it gets faile
-    topology.ebs.csi.aws.com/zone: us-east-1b ## it should be same in 1b only we have to take
+# node selector not required for dynamic ebs storage.
   volumes:
     - name: nginx-html
       persistentVolumeClaim:
