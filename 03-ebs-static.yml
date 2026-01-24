@@ -41,5 +41,5 @@ spec:
     topology.kubernetes.io/region: us-east-1
 volumes:
   - name: nginx-html
-    PersistentVolumeClaim:
+    persistentVolumeClaim:
       claimName: ebs-pvc # and pvc name should be same
