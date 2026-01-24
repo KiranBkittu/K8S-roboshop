@@ -39,7 +39,7 @@ spec:
           mountPath: /usr/share//nginx/html
   nodeSelector: # without nodeselector it may assign to other node which are in other availability zone then it gets faile
     topology.kubernetes.io/region: us-east-1
-volumes:
-  - name: nginx-html
-    persistentVolumeClaim:
-      claimName: ebs-pvc # and pvc name should be same
+  volumes:
+    - name: nginx-html
+     persistentVolumeClaim:
+        claimName: ebs-pvc # and pvc name should be same
