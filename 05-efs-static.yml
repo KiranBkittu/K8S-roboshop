@@ -12,7 +12,7 @@ spec:
   storageClassName: "" # should be emptyin static
   csi:
     driver: ebs.csi.aws.com
-    volumeHandle: vol-07e09f1ac3abd586b # need to paste efs volume id
+    volumeHandle: fs-005e7159ae9d1288b # need to paste efs volume id
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
