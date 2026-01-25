@@ -1,8 +1,8 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: nginx
-  namespace: namespace-01
+  #namespace: namespace-01
   labels:
     purpose: k2
 spec:
@@ -23,7 +23,7 @@ apiVersion: apps/v1
 kind: Service
 metadata:
   name: service-k1
-  namespace: namespace-01
+  #namespace: namespace-01
 spec:
   selector:
     purpose: k2
