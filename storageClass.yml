@@ -1,0 +1,8 @@
+# storage class for dynamic efs
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-stateful
+reclaimPolicy: Retain # retain means don't delete data,
+provisioner: ebs.csi.aws.com # working with efs driver
+volumeBindingMode: WaitForFirstConsumer
