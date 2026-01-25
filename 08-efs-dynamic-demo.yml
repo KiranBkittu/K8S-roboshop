@@ -1,3 +1,4 @@
+# storage class for dynamic efs
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -9,7 +10,7 @@ parameters:
   fileSystemId: fs-065f1e20bcc5b96cc # file system id
   directoryPerms: "700"
   basePath: "/roboshop" # optional
----
+--- # pvc creation and taking storage class name for apache
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata: 
@@ -21,7 +22,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
----
+--- # pvc creation and taking storage class name for tomcat
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -33,7 +34,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
----
+--- # creating pod using pvc for apache we can check at access point
 apiVersion: v1
 kind: Pod
 metadata:
@@ -49,7 +50,7 @@ spec:
     - name: nginx-html
       persistentVolumeClaim:
         claimName: apache-pvc # PersistentVolume Claim name we have to use here to claim
----
+--- # creating pod using pvc for apache we can check at access point
 apiVersion: v1
 kind: Pod
 metadata:
