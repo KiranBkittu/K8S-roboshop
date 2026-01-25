@@ -22,7 +22,7 @@ spec:
           image: nginx
 ---
 apiVersion: autoscaling/v2
-kind: HorizentalPodAutoscaler
+kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-check
   labels:
