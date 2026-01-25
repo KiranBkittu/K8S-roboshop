@@ -6,6 +6,6 @@ reclaimPolicy: Retain # retain means don't delete data,
 provisioner: ebs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSystemId: fs-005e7159ae9d1288b # file system id
+  fileSystemId: fs-0630d439d7dc28000 # file system id
   directoryPerms: "700"
   basePath: "/roboshop" # optional
