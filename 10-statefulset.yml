@@ -28,7 +28,7 @@ metadata:
     purpose: stateful-demo
 spec:
   ports:
-    - ports: 80
+    - port: 80
   selector:
     purpose: stateful-demo
   
