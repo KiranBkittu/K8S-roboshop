@@ -6,7 +6,7 @@ metadata:
   name: ebs-sc-01
 reclaimPolicy: Retain # retain means don't delete data,
 provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: WaitForFirstConsumer # whenever pod is creating that only one it allocate storage
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
