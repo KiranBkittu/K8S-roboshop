@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: roboshop-efs
 reclaimPolicy: Retain # retain means don't delete data,
-provisioner: ebs.csi.aws.com
+provisioner: efs.csi.aws.com # working with efs driver
 parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-0630d439d7dc28000 # file system id
