@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-deployment
+  labels:
+    purpose: dp-demo
+spec: 
+  replicas: 3 # deployment defination starts from here
+  selector:
+    matchLabels:
+      company: wipro
+      employee: dev
+  template: # pod defination start from here
+    metadata:
+      labels:
+        company: wipro
+        employee: dev
+    spec:
+      containers:
+        - name: nginx
+          # image: nginx:1.25.2 # old nginx image for testing
+          image: nginx
+---
+apiVersion: autoscaling/v2
+kind: HorizentalPodAutoscaler
+metadata:
+  name: hpa-check
+  labels:
+        company: wipro
+        employee: dev
+spec:
+  scalerTargetRef:
+    apiVersion: v1
+    kind: Deployment
+    name: nginx-deployment
+    minReplicas: 1
+    maxReplicas: 5
+  metrics:
+    - type: resources
+      resources:  
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 5 # 70 is actual cpu limit for alert
