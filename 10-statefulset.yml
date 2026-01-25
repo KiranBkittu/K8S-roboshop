@@ -34,7 +34,7 @@ spec:
   
 ---
 apiVersion: apps/v1
-kind: Statefulset
+kind: StatefulSet
 metada:
   name: nginx
 spec:
