@@ -1,0 +1,34 @@
+# storage class for dynamic efs
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-stateful
+reclaimPolicy: Retain # retain means don't delete data,
+provisioner: ebs.csi.aws.com # working with efs driver
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-headless
+  labels:
+    purpose: stateful-demo
+spec:
+  ports:
+    - port: 80
+  clusterIP: None
+  selector:
+    purpose: stateful-demo
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx
+  labels: 
+    purpose: stateful-demo
+spec:
+  ports:
+    - ports: 80
+  selector:
+    purpose: stateful-demo
+  
