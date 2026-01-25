@@ -6,8 +6,9 @@ spec:
   accessModes:  
     - ReadWriteMany
   storageClassName: efs-demo
-  resource:
-    storage: 5Gi
+  resources:
+    requests:
+      storage: 5Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -17,5 +18,6 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: efs-demo
-  resource:
-    storage: 5Gi
+  resources:
+    requests:
+      storage: 5Gi
