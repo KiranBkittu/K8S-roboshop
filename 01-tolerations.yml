@@ -1,3 +1,4 @@
+# for taint use kubectl taint nodes node-id value=something:NoSchedule
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -17,6 +18,12 @@ spec:
         company: wipro
         employee: dev
     spec:
+      nodeSelector: # need to provide node selector also bcz it may or may not be schedule to this node
+        topology.kubernetes.io/zone: us-east-1d
       containers:
         - name: nginx
           image: nginx
+          - key: "project"
+          value: "roboshop"
+          operator: "Equal"
+          effect: "NoSchedule"
