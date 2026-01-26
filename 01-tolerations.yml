@@ -23,7 +23,7 @@ spec:
       containers:
         - name: nginx
           image: nginx
-          - key: "project"
+          key: "project"
           value: "roboshop"
           operator: "Equal"
           effect: "NoSchedule"
