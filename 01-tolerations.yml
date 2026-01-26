@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-deployment
+  labels:
+    company: wipro
+    employee: dev
+spec: 
+  replicas: 3 # deployment defination starts from here
+  selector:
+    matchLabels:
+      company: wipro
+      employee: dev
+  template: # pod defination start from here
+    metadata:
+      labels:
+        company: wipro
+        employee: dev
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
