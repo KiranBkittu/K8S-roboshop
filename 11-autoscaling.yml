@@ -3,7 +3,8 @@ kind: Deployment
 metadata: 
   name: nginx-deployment
   labels:
-    purpose: dp-demo
+    company: wipro
+    employee: dev
 spec: 
   replicas: 3 # deployment defination starts from here
   selector:
@@ -29,13 +30,13 @@ metadata:
         company: wipro
         employee: dev
 spec:
-  scaleTargetRef:
+  scaleTargetRef: #deployment or statefulset to scale
     apiVersion: v1
     kind: Deployment
     name: nginx-deployment
   minReplicas: 1
   maxReplicas: 5
-  metrics:
+  metrics: # CPU, memory, or custom metric
     - type: Resource  
       resource:  
         name: cpu
