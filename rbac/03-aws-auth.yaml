@@ -11,6 +11,7 @@ data:
       - trainee
       userarn: arn:aws:iam::683134746681:user/suresh
       username: suresh
+      username: ramesh
 kind: ConfigMap
 metadata:
   creationTimestamp: "2026-01-28T16:26:48Z"
@@ -18,3 +19,9 @@ metadata:
   namespace: kube-system
   resourceVersion: "1119"
   uid: 7b7db883-daa4-4502-8585-1dab8966c6e8
+
+# 1 Steps create user in aws with policy in that select for eks read> describe pod
+# 2 create role in 01 for role trainee then rolebinding 02 bind trainee to suresh user
+# 3 take kubectl get configmap aws-auth -n kube-system -o yaml and add content of mapUsers and apply it kubectl apply -f again. 
+# 4 launch on aws instance install kubectl then create security credentials for suresh user then do aws configure in newly launched install with region the run update aws configure
+# 5 aws eks update-kubeconfig --region us-east-1 --name Test12345
