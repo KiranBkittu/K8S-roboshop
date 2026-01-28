@@ -11,7 +11,6 @@ data:
       - trainee
       userarn: arn:aws:iam::683134746681:user/suresh
       username: suresh
-      username: ramesh
 kind: ConfigMap
 metadata:
   creationTimestamp: "2026-01-28T16:26:48Z"
