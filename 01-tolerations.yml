@@ -23,7 +23,7 @@ spec:
       containers:
         - name: nginx
           image: nginx
-      tolerations:
+      tolerations: # tolerations given to node level like exception case to schedule this pod
         - key: "project"
           value: "roboshop"
           operator: "Equal"
