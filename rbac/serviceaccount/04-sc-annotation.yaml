@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: s3-sa
+  namespace: default
+  annotations: 
+    eks.amazon.com/role-arn: arn:aws:iam::683134746681:role/eks-s3-irsa-role
