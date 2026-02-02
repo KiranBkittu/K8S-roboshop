@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1
-          image: joindevops/app1:v1
+          image: nginx
 ---
 apiVersion: v1
 kind: Service
@@ -39,6 +39,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing # it means it use for public
     alb.ingress.kubernetes.io/tags: ENV=dev, Test=Test
     alb.ingress.kubernetes.io/target-type: ip # what type of service we are using this will map to pods
+    alb.ingress.kubernetes.io/group.name: test123 # same need to add for app2 then two ingress will be in same load balancer
 spec:
   ingressClassName: alb
   rules:
@@ -49,7 +50,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: app1
+                name: app1 # need to specify service details
                 port:
                   number: 80
 
