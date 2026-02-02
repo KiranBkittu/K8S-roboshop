@@ -30,25 +30,25 @@ spec:
       port: 80
       targetPort: 80
 ---
-apiVersion: networking.k8.io/v1
-kind: Ingress
-metadata:
-  name: app1
-  annotations:
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/tags: ENV=dev, Test=Test
-spec:
-  ingressClassName: alb
-  rules:
-    - host: "app1.daws86s.fun"
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: app1
-                port:
-                  number: 80
+# apiVersion: networking.k8.io/v1
+# kind: Ingress
+# metadata:
+#   name: app1
+#   annotations:
+#     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+#     alb.ingress.kubernetes.io/scheme: internet-facing
+#     alb.ingress.kubernetes.io/tags: ENV=dev, Test=Test
+# spec:
+#   ingressClassName: alb
+#   rules:
+#     - host: "app1.daws86s.fun"
+#       http:
+#         paths:
+#           - pathType: Prefix
+#             path: "/"
+#             backend:
+#               service:
+#                 name: app1
+#                 port:
+#                   number: 80
 
