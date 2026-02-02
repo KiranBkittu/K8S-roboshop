@@ -30,14 +30,15 @@ spec:
       port: 80
       targetPort: 80
 ---
-apiVersion: networking.k8.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app1
   annotations:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
-    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/scheme: internet-facing # it means it use for public
     alb.ingress.kubernetes.io/tags: ENV=dev, Test=Test
+    alb.ingress.kubernetes.io/target-type: ip # what type of service we are using this will map to pods
 spec:
   ingressClassName: alb
   rules:
